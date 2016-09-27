@@ -67,12 +67,10 @@ mbed has a large number of resources hosted online for your convenience. From th
 ### Documentation
 The documentation section of the website is the index for all docs hosted on [http://docs.mbed.com](http://docs.mbed.com). Any user can create docs for their project and publish them. The Documentation section contains all of the docs for the official mbed APIs and relevant example code. 
 
-
-
 ### The mbed Online Compiler
 The mbed Online Compiler hosted at [developer.mbed.org/compiler](developer.mbed.org/compiler) allows you to compile and edit your projects. You can also publish your code, which makes it available to others by adding an ‘Import’ button to your project’s page. The compiler does not include a debugger, so a common use case is to start your project in the compiler and then export to an offline compiler like Keil or IAR for debugging. 
 
-
+<span class="images">![](img/image08.png)</span>
 
 Here is a video on getting started with the mbed Online Compiler: 
 
@@ -81,6 +79,7 @@ Here is a video on getting started with the mbed Online Compiler:
 ### The Boards page
 The [Boards page](http://developer.mbed.org/platforms) contains a list of every board officially supported in the mbed ecosystem. There are links on each board’s page to add the board to your compiler, buy the board, view pinout diagrams, and install firmware updates and bug fixes. It is important that you look at the board page to learn the pin names and check for firmware updates.
 
+<span class="images">![](img/image02.png)</span>
 
 If you want to compile code for a board you should go to its board page and click the Add to Compiler button. That’s it! Now when you are in the compiler you can compile code for the board you selected.
 <span class="tips"> Tip: Make sure you are logged in to do this.</span>
@@ -88,12 +87,14 @@ If you want to compile code for a board you should go to its board page and clic
 ### Components database
 [The components database](https://developer.mbed.org/components/) is a list of software libraries and reference docs for hardware peripherals and sensors. Each component has a library and code example associated with it; you can use the import functionality described above to add code and libraries for these components to your compiler. Combined with documentation, this makes it easy to begin using a part you are not familiar with. The goal of the components database is to speed up development by sharing code, so you don't have to waste time rewriting a driver that someone else has already created. 
 
-
+<span class="images">![](img/image03.png)</span>
 
 ### Code examples
 You can find code examples for existing components in the components database or by using the search function. The mbed_examples team page has great sample projects demonstrating the mbed APIs.
 
-
+<span class="images">![](img/image06.png)</span>
 
 ### Forums
 The [forum](https://forums.mbed.com/) is an excellent place to ask questions about anything and get a quick response from the community. It is mostly moderated by community members and is a source for tips, tricks and advice for all things mbed. 
+
+<span class="images">![](img/image00.png)</span>
