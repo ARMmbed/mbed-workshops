@@ -3,10 +3,9 @@
 ## Creating an mbed account
 
 1. Go to [https://developer.mbed.org/account/login/](https://developer.mbed.org/account/login/ ) and sign up for an account. Alternatively, you can open the `mbed.html` file that is on every mbed development board. 
-
-
+    <span class="images">![](img/image05.png)</span>
 1. Fill in your information. The username you choose here will be what the community sees on your code and all comments you make.
- 
+    <span class="images">![](img/image01.png)</span>
 
 ## Example 1 - Blinky
 There are multiple ways to blink an LED. Let's explore the three main ones:
