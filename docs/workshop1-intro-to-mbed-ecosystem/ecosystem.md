@@ -42,7 +42,7 @@ The mbed command line interface (CLI) is the primary tool used to build mbed OS 
 
 mbed CLI is the back end utility the mbed team uses internally. We have open-sourced it for public use in an effort to make the online <-> offline transition easier. If you would like to install mbed CLI we’ve made an How To video: 
 
-[![Video tutorial](http://img.youtube.com/vi/cM0dFoTuU14/0.jpg)](https://www.youtube.com/watch?v=cM0dFoTuU14)
+<span class="images">[![Video tutorial](http://img.youtube.com/vi/cM0dFoTuU14/0.jpg)](https://www.youtube.com/watch?v=cM0dFoTuU14)</span>
 
 For more information on using mbed CLI see the Handbook pages for [Blinky on mbed CLI]( https://docs.mbed.com/docs/mbed-os-handbook/en/5.1/getting_started/blinky_cli/) or the [full mbed CLI guide](https://docs.mbed.com/docs/mbed-os-handbook/en/5.1/dev_tools/cli/).
 
