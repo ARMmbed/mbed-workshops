@@ -1,0 +1,12 @@
+site_name: mbed Workshops
+
+docs_dir: docs
+
+pages:
+- ['index.md','Introduction to the mbed workshops']
+- ['intro.md', 'Workshop 1', 'Introduction']
+- ['ecosystem.md', 'Workshop 1', 'The mbed ecosystem']
+- ['getting_started_mbed_os.md', 'Workshop 1', 'mbed OS - first applications']
+- ['resources.md', 'Workshop 1', 'Additional resources']
+
+copyright: © ARM Ltd. Copyright 2016 – ARM mbed IoT Device Platform
