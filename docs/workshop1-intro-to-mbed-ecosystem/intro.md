@@ -10,3 +10,4 @@ In this document we are going to go over the various tools and services that mak
 _____
 
 This document is best viewed as a digital document. Here is a permalink to the document in case you are viewing it offline: [https://docs.mbed.com/docs/mbed-workshops/en/latest/workshop1-intro-to-mbed-ecosystem/intro/](https://docs.mbed.com/docs/mbed-workshops/en/latest/workshop1-intro-to-mbed-ecosystem/intro/).
+In addition here are the slides that accompany this doc: [goo.gl/9SB9RB]goo.gl/9SB9RB](http://www.goo.gl/9SB9RB).
