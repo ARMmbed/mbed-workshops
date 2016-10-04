@@ -28,22 +28,7 @@ There are multiple ways to automatically blink an LED. Let's explore the three m
 ### Busy wait
 Busy wait is a method that blocks the processor for a period of time. This is an effective way to create time delays, but it’s rather inefficient because it wastes processor time and keeps the processor running at full power for the duration of the wait:
 
-```
-#include "mbed.h"
-
-DigitalOut myled(LED1);
-
-int main() {
-    while(1) {
-        myled = 1;
-        // printf("LED On\r\n");
-        wait(0.2);
-        myled = 0;
-        // printf("LED Off \r\n");
-        wait(0.2);
-    }
-}
-```
+[![View code](https://www.mbed.com/embed/?url=https://developer.mbed.org/teams/mbed-Workshops/code/Workshop-1-Example-1/)](https://developer.mbed.org/teams/mbed-Workshops/code/Workshop-1-Example-1/file/tip/main.cpp)
 
 Notice `printf()`; you can enable this by uncommenting the line (remove the ‘//’). `printf()` prints to the terminal, so you can use them to get debug information. We recommend using [CoolTerm](http://freeware.the-meiers.org/), as it works the same on Windows, Linux and OS X. [Here is a handy video on how to use CoolTerm](https://www.youtube.com/watch?v=jAMTXK9HjfU) to connect to your board and view the `printf()` statements. 
 
@@ -52,59 +37,12 @@ Tickers and timers are another way of creating a time interval. These methods ar
 
 Here is an example that doesn't include sleeping:
 
-```
-#include "mbed.h"
- 
-Ticker flipper;
-DigitalOut led1(LED1);
-DigitalOut led2(LED2);
- 
-void flip() {
-    led2 = !led2;
-}
- 
-int main() {
-    led2 = 1;
-    flipper.attach(&flip, 2.0); // call flip function every 2 seconds 
-
-
-    // spin in a main loop. flipper will interrupt it to call flip
-    while(1) {
-        led1 = !led1;
-        wait(0.2);
-    }
-}
-
-```
+[![View code](https://www.mbed.com/embed/?url=https://developer.mbed.org/teams/mbed-Workshops/code/Workshop-1-Example-2/)](https://developer.mbed.org/teams/mbed-Workshops/code/Workshop-1-Example-2/file/tip/main.cpp)
 
 ### Thread 
 Threads are the most efficient way to blink an LED. During the waiting period it is possible to take advantage of mbed OS optimizations to automatically conserve power and deal with other tasks. While this is not the most visually appealing method, nor the simplest, it is the preferred way for large scale deployments:
 
-```
-#include "mbed.h"
-#include "rtos.h"
- 
-DigitalOut led1(LED1);
-DigitalOut led2(LED2);
- 
-void led2_thread(void const *args) {
-    while (true) {
-        led2 = !led2;
-        Thread::wait(1000);
-    }
-}
- 
-int main() {
-    //Create a thread to execute the function led2_thread
-    Thread thread(led2_thread);
-    //led2_thread is executing concurrently with main at this point
-    
-    while (true) {
-        led1 = !led1;
-        Thread::wait(500);
-    }
-}
-```
+[![View code](https://www.mbed.com/embed/?url=https://developer.mbed.org/teams/mbed-Workshops/code/Workshop-1-Example-3/)](https://developer.mbed.org/teams/mbed-Workshops/code/Workshop-1-Example-3/file/tip/main.cpp)
 
 ### Automated Blinky challenge
 Now that you have gotten the LED to blink, try using a different LED. LED1-4 should be valid options on all boards. Some boards will have tricolor LEDs, so if you turn on multiple LEDs at once you can get different colors. Try turning on and off the various LEDs. Try creating a cool pattern. Try making the blink pattern random. 
@@ -117,24 +55,7 @@ We can wait for digital input the same way we waited for time to pass - using a 
 
 <span class="tips">**Tip:** You may need to change the `SW1` pin, as the button on your board may be called something else. Please refer to the pinmap on the [Boards page](https://developer.mbed.org/platforms/). </span>
 
-```
-#include "mbed.h"
-#include "rtos.h"
- 
-DigitalIn button(SW1); // Change to match your board
-DigitalOut led(LED1);
-
-#define button_press 0
-
-int main() {
-    while(1) {
-        if(button_press == button){
-           led = !led;
-           wait(1);
-       }
-    }
-}
-```
+[![View code](https://www.mbed.com/embed/?url=https://developer.mbed.org/teams/mbed-Workshops/code/Workshop-1-Example-4/)](https://developer.mbed.org/teams/mbed-Workshops/code/Workshop-1-Example-4/file/tip/main.cpp)
 
 We constantly poll the button to see if it has a value that matches ‘button_press’. If it matches, we toggle the LED and wait 1 second. 
 
@@ -144,25 +65,7 @@ We constantly poll the button to see if it has a value that matches ‘button_pr
 ### Interrupt button
 An alternative way to poll the button is to use an interrupt. Interrupts let you say ‘when that pin changes value, call this function’. In other words, we can tell the MCU to call a function when the button is pressed. In our case, that function toggles the LED: 
 
-```
-#include "mbed.h"
- 
-InterruptIn button(SW1);
-DigitalOut led(LED1);
-DigitalOut heartbeat(LED2);
- 
-void toggle() {
-    led = !led;
-}
- 
-int main() {
-    button.rise(&toggle);  // call toggle function on the rising edge
-    while(1) {           // wait around, interrupts will interrupt this!
-        heartbeat= !heartbeat;
-        wait(0.25);
-    }
-}
-```
+[![View code](https://www.mbed.com/embed/?url=https://developer.mbed.org/teams/mbed-Workshops/code/Workshop-1-Example-5/)](https://developer.mbed.org/teams/mbed-Workshops/code/Workshop-1-Example-5/file/tip/main.cpp)
 
 In the code above we have a heartbeat function that runs on LED2, which lets you see that your code is running. Then we connect an InterruptIn object to the button and set it so that when the button rises from 0 to 1 the toggle function is called; the function toggles LED1. This way we can turn the LED on and off as needed, without needing to “waste” our time waiting or actively polling an inactive button. We (or rather - the MCU) are free to move on to other things . 
 
